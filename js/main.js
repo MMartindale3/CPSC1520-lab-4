@@ -7,25 +7,37 @@
 
     // Add your code here
     const usernameElement = document.querySelector("#username-element");
-    const username = document.querySelector("#username");
-    
-    const cityElement = document.querySelector("#city");
-    const provinceElement = document.querySelector("#province");
+    const cityElement = document.querySelector("#city-element");
+    const provinceElement = document.querySelector("#province-element");
 
     usernameElement.addEventListener("input", onHandleUsername);
-    
     function onHandleUsername(e) {
-        const username = e.currentTarget.text;
-        render(username, document.querySelector("#username-element"));
+        e.preventDefault();
+        const username = document.getElementById("username-element").value;
+        console.log(username);
+        
     }
 
-    console.log(usernameElement);
-function render(data, container) {
-    const template = `<p class="border py-8 px-6"></p>`
-    container.insertAdjacentHTML("beforeend", template)
-}
-    
-    
+    cityElement.addEventListener("input", onHandleCity);
+    function onHandleCity(e) {
+        e.preventDefault();
+        const city = document.getElementById("city-element").value;
+        console.log(city);        
+    }
+
+    provinceElement.addEventListener("change", onHandleProvince);
+    function onHandleProvince(e) {
+        e.preventDefault();
+        const province = document.getElementById("province-element").value;
+        console.log(province);        
+    }
+
+    function render(data, container) {
+        const template = `<p class="border py-8 px-6"></p>`
+        container.insertAdjacentHTML("beforeend", template)
+    }
+
+
 
     // the isValueNotEmpty function: 
     // returns true if value not empty
